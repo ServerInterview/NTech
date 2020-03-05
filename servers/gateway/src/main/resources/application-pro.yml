@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: ntech-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user
+          uri: lb://ntech-user
+          predicates:
+            - Path=/user/**
+
+server:
+  port: 8002
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
